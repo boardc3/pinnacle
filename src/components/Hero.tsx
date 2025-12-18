@@ -2,6 +2,13 @@ import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Overlay */}
@@ -29,10 +36,16 @@ const Hero = () => {
             Experience the future of residential living in Ithaca through cinematic storytelling.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <button className="bg-white text-gray-900 px-12 py-5 text-sm uppercase tracking-widest hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl">
+            <button 
+              onClick={() => scrollToSection('overview')}
+              className="bg-white text-gray-900 px-12 py-5 text-sm uppercase tracking-widest hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl"
+            >
               Explore the Story
             </button>
-            <button className="border border-white/40 backdrop-blur-sm text-white px-12 py-5 text-sm uppercase tracking-widest hover:bg-white/10 transition-all">
+            <button 
+              onClick={() => scrollToSection('map')}
+              className="border border-white/40 backdrop-blur-sm text-white px-12 py-5 text-sm uppercase tracking-widest hover:bg-white/10 transition-all"
+            >
               The Location
             </button>
           </div>
@@ -43,7 +56,8 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white flex flex-col items-center"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white flex flex-col items-center cursor-pointer"
+        onClick={() => scrollToSection('overview')}
       >
         <span className="text-[10px] uppercase tracking-[0.3em] mb-2 opacity-60">Begin Experience</span>
         <motion.div

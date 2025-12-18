@@ -19,6 +19,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply antialiased bg-white text-gray-900 font-sans;
   }
