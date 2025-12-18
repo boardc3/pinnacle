@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MapPin, Info, Navigation, Utensils, GraduationCap, Martini, ShoppingBag, Trees } from 'lucide-react'
+import { MapPin, Navigation, Utensils, GraduationCap, Martini, ShoppingBag, Trees } from 'lucide-react'
 
 const locations = [
   { 
@@ -85,13 +85,10 @@ const locations = [
   }
 ]
 
-const InteractiveMap = () => {
+  const InteractiveMap = () => {
   const [selected, setSelected] = useState(locations[0])
 
-  // Generate Google Maps Embed URL based on selected location
-  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(selected.address + " " + selected.name)}&zoom=15&maptype=roadmap`;
-  
-  // Using a standard embed URL without API key for demo purposes (limited features but works)
+  // Using a standard embed URL for demo purposes (limited features but works without API key)
   const fallbackMapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(selected.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
