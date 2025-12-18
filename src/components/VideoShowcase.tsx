@@ -50,7 +50,7 @@ const VideoShowcase = () => {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {demoVideos.map((video, index) => (
             <motion.div
               key={video.id}
@@ -77,6 +77,38 @@ const VideoShowcase = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="border-t border-gray-100 pt-24">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-serif text-gray-900"
+            >
+              Interior Demo — rough
+            </motion.h2>
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="w-full relative aspect-video bg-gray-100 overflow-hidden rounded-xl shadow-2xl"
+          >
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              disablePictureInPicture
+            >
+              <source src="/GunInterior.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
         </div>
       </div>
     </section>
